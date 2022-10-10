@@ -33,8 +33,7 @@ public class BBDD {
 
 	public static ArrayList<Integer> numdeptnos() {
 		BBDD.iniciarsesion();
-		String sql = "SELECT numDepartamento FROM Departamentos";
-		TypedQuery<Integer> consulta = sesion.createQuery(sql, Integer.class);
+		TypedQuery<Integer> consulta = sesion.createQuery("SELECT numDepartamento FROM Departamentos", Integer.class);
 		List<Integer> list = consulta.getResultList();
 		BBDD.finalizarsesion();
 		return (ArrayList<Integer>) list;
@@ -42,8 +41,7 @@ public class BBDD {
 
 	public static ArrayList<String> puestos() {
 		BBDD.iniciarsesion();
-		String sql = "SELECT DISTINCT puesto FROM Empleados";
-		TypedQuery<String> consulta = sesion.createQuery(sql, String.class);
+		TypedQuery<String> consulta = sesion.createQuery("SELECT DISTINCT puesto FROM Empleados", String.class);
 		List<String> list = consulta.getResultList();
 		BBDD.finalizarsesion();
 		return (ArrayList<String>) list;
